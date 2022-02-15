@@ -20,7 +20,8 @@ Route::get('/', function () {
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "Home"
+        "title" => "Home",
+        "gambar" => "mus.jpg"
     ]);
 });
 
@@ -41,3 +42,7 @@ Route::get('/gallery', function (){
 
 Route::resource('/contacts', ContactController::class);
  
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
